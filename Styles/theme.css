@@ -1,0 +1,14 @@
+/* sticky footer */
+html, body { height: 100%; }
+/* The html and body elements cannot have any padding or margin. */
+#layout-wrapper { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -273px; }
+/* Negative indent footer by it's height */
+#push, #footer { height: 270px; }
+/* Set the fixed height of the footer here */
+#footer { margin-top: 0; padding-top: 0; }
+.content { margin-bottom: 20px; }
+
+@media (max-width: 767px) {
+    #footer { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
+    /* Lastly, apply responsive CSS fixes as necessary */
+}
