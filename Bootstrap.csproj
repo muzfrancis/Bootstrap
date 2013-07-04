@@ -64,37 +64,30 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\alpha.png" />
+    <Content Include="Content\font\font-awesome\fontawesome-webfont.svg" />
     <Content Include="Content\glyphicons-halflings-white.png" />
     <Content Include="Content\glyphicons-halflings.png" />
-    <Content Include="Content\hue.png" />
-    <Content Include="Content\saturation.png" />
-    <Content Include="Scripts\bootbox.js" />
-    <Content Include="Scripts\bootbox.min.js" />
-    <Content Include="Scripts\bootstrap-affix.js" />
-    <Content Include="Scripts\bootstrap-alert.js" />
-    <Content Include="Scripts\bootstrap-button.js" />
-    <Content Include="Scripts\bootstrap-carousel.js" />
-    <Content Include="Scripts\bootstrap-collapse.js" />
-    <Content Include="Scripts\bootstrap-colorpicker.js" />
-    <Content Include="Scripts\bootstrap-datepicker.js" />
-    <Content Include="Scripts\bootstrap-dropdown.js" />
-    <Content Include="Scripts\bootstrap-modal.js" />
-    <Content Include="Scripts\bootstrap-popover.js" />
-    <Content Include="Scripts\bootstrap-scrollspy.js" />
-    <Content Include="Scripts\bootstrap-tab.js" />
-    <Content Include="Scripts\bootstrap-tooltip.js" />
-    <Content Include="Scripts\bootstrap-transition.js" />
-    <Content Include="Scripts\bootstrap-typeahead.js" />
-    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Styles\bootstrap-responsive.css" />
+    <Content Include="Scripts\html5shim.js" />
+    <Content Include="Styles\amelia.min.css" />
     <Content Include="Styles\bootstrap-responsive.min.css" />
-    <Content Include="Styles\bootstrap.css" />
     <Content Include="Styles\bootstrap.min.css" />
-    <Content Include="Styles\colorpicker.css" />
-    <Content Include="Styles\datepicker.css" />
-    <Content Include="Styles\site.css" />
+    <Content Include="Styles\bootswatch.css" />
+    <Content Include="Styles\cerulean.min.css" />
+    <Content Include="Styles\cosmo.min.css" />
+    <Content Include="Styles\cyborg.min.css" />
+    <Content Include="Styles\flatly.min.css" />
+    <Content Include="Styles\font-awesome-ie7.min.css" />
+    <Content Include="Styles\font-awesome.min.css" />
+    <Content Include="Styles\journal.min.css" />
+    <Content Include="Styles\readable.min.css" />
+    <Content Include="Styles\simplex.min.css" />
+    <Content Include="Styles\slate.min.css" />
+    <Content Include="Styles\spacelab.min.css" />
+    <Content Include="Styles\spruce.min.css" />
+    <Content Include="Styles\superhero.min.css" />
+    <Content Include="Styles\theme.css" />
+    <Content Include="Styles\united.min.css" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\Web.config" />
@@ -115,154 +108,58 @@
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Themes\Orchard.Themes.csproj">
+      <Project>{cde24a24-01d3-403c-84b9-37722e18dfb7}</Project>
+      <Name>Orchard.Themes</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Zones\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Menu.cshtml" />
+    <Content Include="Content\font\font-awesome\fontawesome-webfont.eot" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\MenuItem.cshtml" />
+    <Content Include="Content\font\font-awesome\fontawesome-webfont.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\MenuItemLink.cshtml" />
+    <Content Include="Content\font\font-awesome\fontawesome-webfont.woff" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\MenuItemLinkdd.cshtml" />
+    <Content Include="Content\font\font-awesome\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Pager.CurrentPage.cshtml" />
+    <Content Include="Views\Document.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Pager.First.cshtml" />
+    <Compile Include="AdminMenu.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Filters\AlternateCssFilter.cs" />
+    <Compile Include="Filters\LayoutFilter.cs" />
+    <Compile Include="Migrations.cs" />
+    <Compile Include="Models\ThemeSettingsRecord.cs" />
+    <Compile Include="Permissions.cs" />
+    <Compile Include="ResourceManifest.cs" />
+    <Compile Include="Routes.cs" />
+    <Compile Include="Services\IThemeSettingsService.cs" />
+    <Compile Include="Services\ThemeSettingsService.cs" />
+    <Compile Include="ViewModels\ThemeSettingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Pager.Last.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Pager.Next.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Pager.Previous.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\BadgeOfHonor.cshtml" />
+    <Content Include="Views\Menu.cshtml" />
+    <Content Include="Views\MenuItem.cshtml" />
+    <Content Include="Views\MenuItemLink.cshtml" />
+    <Content Include="Views\MenuItemLinkdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Branding.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\User.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\SearchNav.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Parts.Comments.Count.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Parts.Comments.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Parts.Common.Body.Summary.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Parts.Common.Metadata.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Parts.Common.Metadata.Summary.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Content.Summary.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Parts.Title_Summary.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Styles\less\accordion.less" />
-    <Content Include="Styles\less\alerts.less" />
-    <Content Include="Styles\less\bootstrapless.less" />
-    <Content Include="Styles\less\breadcrumbs.less" />
-    <Content Include="Styles\less\button-groups.less" />
-    <Content Include="Styles\less\buttons.less" />
-    <Content Include="Styles\less\carousel.less" />
-    <Content Include="Styles\less\close.less" />
-    <Content Include="Styles\less\code.less" />
-    <Content Include="Styles\less\component-animations.less" />
-    <Content Include="Styles\less\dropdowns.less" />
-    <Content Include="Styles\less\forms.less" />
-    <Content Include="Styles\less\grid.less" />
-    <Content Include="Styles\less\hero-unit.less" />
-    <Content Include="Styles\less\labels-badges.less" />
-    <Content Include="Styles\less\layouts.less" />
-    <Content Include="Styles\less\media.less" />
-    <Content Include="Styles\less\mixins.less" />
-    <Content Include="Styles\less\modals.less" />
-    <Content Include="Styles\less\navbar.less" />
-    <Content Include="Styles\less\navs.less" />
-    <Content Include="Styles\less\pager.less" />
-    <Content Include="Styles\less\pagination.less" />
-    <Content Include="Styles\less\popovers.less" />
-    <Content Include="Styles\less\progress-bars.less" />
-    <Content Include="Styles\less\reset.less" />
-    <Content Include="Styles\less\responsive-1200px-min.less" />
-    <Content Include="Styles\less\responsive-767px-max.less" />
-    <Content Include="Styles\less\responsive-768px-979px.less" />
-    <Content Include="Styles\less\responsive-navbar.less" />
-    <Content Include="Styles\less\responsive-utilities.less" />
-    <Content Include="Styles\less\responsive.less" />
-    <Content Include="Styles\less\scaffolding.less" />
-    <Content Include="Styles\less\sprites.less" />
-    <Content Include="Styles\less\tables.less" />
-    <Content Include="Styles\less\thumbnails.less" />
-    <Content Include="Styles\less\tooltip.less" />
-    <Content Include="Styles\less\type.less" />
-    <Content Include="Styles\less\utilities.less" />
-    <Content Include="Styles\less\variables.less" />
-    <Content Include="Styles\less\wells.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Styles\less\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Content.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\CommentMetadata.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\ListOfComments.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Parts\Tags.ShowTags.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Layout-fluid.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Message.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Styles\less\datepicker.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Styles\less\colorpicker.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\LogOn.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Register.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\ChangePassword.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\RequestLostPassword.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
