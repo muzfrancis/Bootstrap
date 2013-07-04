@@ -27,7 +27,7 @@ namespace Bootstrap {
                     .Action("Index", "Admin", new { area = Constants.ROUTES_AREA_NAME })
                     .Permission(Bootstrap.Permissions.ManageThemeSettings)
             );
-            menu.Add(T("Swatch"), "10.1",
+            menu.Add(T("Choose Options"), "10.1",
                 item => item
                     .Action("Index", "Admin", new { area = Constants.ROUTES_AREA_NAME })
                     .Permission(Bootstrap.Permissions.ManageThemeSettings)
