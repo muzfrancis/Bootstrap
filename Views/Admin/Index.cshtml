@@ -9,10 +9,36 @@
     Html.ValidationSummary();
     
     <fieldset>
+        @Html.CheckBoxFor(m => m.UseFixedHeader)@T("Use Fixed Navigation")
+        <span id="lblUseFixedHeader" class="hint">@T("Select this checkbox to use a fixed navigation")</span>
+    </fieldset>
+    
+    <fieldset>
+        @Html.CheckBoxFor(m => m.UseInverseHeader)@T("Use Inverse Navigation Color")
+        <span id="lblUseInverseHeader" class="hint">@T("Select this checkbox to use the inverse navigation color")</span>
+    </fieldset>
+    
+    <fieldset>
+        @Html.CheckBoxFor(m => m.UseStickyFooter)@T("Use Sticky Footer")
+        <span id="lblUseStickyFooter" class="hint">@T("Select this checkbox to use a sticky footer")</span>
+    </fieldset>
+    
+    <fieldset>
         <select id="@Html.FieldIdFor(m => m.Swatch)" name="@Html.FieldNameFor(m => m.Swatch)">
             <option value="bootstrap.min.css" @if (Model.Swatch.EndsWith("bootstrap.min.css")) { <text>selected="selected"</text> }>@T("Default")</option>
             <option value="amelia.min.css" @if (Model.Swatch.EndsWith("amelia.min.css")) { <text>selected="selected"</text> }>@T("Amelia")</option>
             <option value="cerulean.min.css" @if (Model.Swatch.EndsWith("cerulean.min.css")) { <text>selected="selected"</text> }>@T("Cerulean")</option>
+            <option value="cosmo.min.css" @if (Model.Swatch.EndsWith("cosmo.min.css")) { <text>selected="selected"</text> }>@T("Cosmo")</option>
+            <option value="cyborg.min.css" @if (Model.Swatch.EndsWith("cyborg.min.css")) { <text>selected="selected"</text> }>@T("Cyborg")</option>
+            <option value="flatly.min.css" @if (Model.Swatch.EndsWith("flatly.min.css")) { <text>selected="selected"</text> }>@T("Flatly")</option>
+            <option value="journal.min.css" @if (Model.Swatch.EndsWith("journal.min.css")) { <text>selected="selected"</text> }>@T("Journal")</option>
+            <option value="readable.min.css" @if (Model.Swatch.EndsWith("readable.min.css")) { <text>selected="selected"</text> }>@T("Readable")</option>
+            <option value="simplex.min.css" @if (Model.Swatch.EndsWith("simplex.min.css")) { <text>selected="selected"</text> }>@T("Simplex")</option>
+            <option value="slate.min.css" @if (Model.Swatch.EndsWith("slate.min.css")) { <text>selected="selected"</text> }>@T("Slate")</option>
+            <option value="spacelab.min.css" @if (Model.Swatch.EndsWith("spacelab.min.css")) { <text>selected="selected"</text> }>@T("Spacelab")</option>
+            <option value="spruce.min.css" @if (Model.Swatch.EndsWith("spruce.min.css")) { <text>selected="selected"</text> }>@T("Spruce")</option>
+            <option value="superhero.min.css" @if (Model.Swatch.EndsWith("superhero.min.css")) { <text>selected="selected"</text> }>@T("Superhero")</option>
+            <option value="united.min.css" @if (Model.Swatch.EndsWith("united.min.css")) { <text>selected="selected"</text> }>@T("United")</option>
         </select>
         <span class="hint">@T("Select the swatch that you want")</span>
     </fieldset>
