@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Web;
 using System.Web.Mvc;
 using Orchard.Mvc.Filters;
+using Orchard.Themes.Services;
 using Orchard.UI.Admin;
 using Orchard.UI.Resources;
-using Orchard.Utility.Extensions;
 using Bootstrap.Services;
-using Orchard;
-using Orchard.Themes.Services;
 
 namespace Bootstrap.Filters {
     public class AlternateCssFilter : FilterProvider, IResultFilter {
