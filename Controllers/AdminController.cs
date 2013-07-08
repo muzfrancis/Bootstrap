@@ -27,6 +27,7 @@ namespace Bootstrap.Controllers {
             var viewModel = new ThemeSettingsViewModel {
                 Swatch = settings.Swatch,
                 UseFixedHeader = settings.UseFixedHeader,
+                UseFluidLayout = settings.UseFluidLayout,
                 UseInverseHeader = settings.UseInverseHeader,
                 UseStickyFooter = settings.UseStickyFooter
             };
@@ -42,6 +43,7 @@ namespace Bootstrap.Controllers {
             var settings = _settingsService.GetSettings();
             settings.Swatch = viewModel.Swatch;
             settings.UseFixedHeader = viewModel.UseFixedHeader;
+            settings.UseFluidLayout = viewModel.UseFluidLayout;
             settings.UseInverseHeader = viewModel.UseInverseHeader;
             settings.UseStickyFooter = viewModel.UseStickyFooter;
 

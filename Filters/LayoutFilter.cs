@@ -43,6 +43,10 @@ namespace Bootstrap.Filters {
                     /* TODO: Replace note use Items collection */
                     System.Web.HttpContext.Current.Items[Constants.ITEM_USE_FIXED_HEADER] = settings.UseFixedHeader.ToString();
                 }
+                if (settings.UseFluidLayout) {
+                    /* TODO: Replace note use Items collection */
+                    System.Web.HttpContext.Current.Items[Constants.ITEM_USE_FLUID_LAYOUT] = settings.UseFluidLayout.ToString();
+                }
                 if (settings.UseInverseHeader) {
                     /* TODO: Replace note use Items collection */
                     System.Web.HttpContext.Current.Items[Constants.ITEM_USE_INVERSE_HEADER] = settings.UseInverseHeader.ToString();

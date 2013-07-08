@@ -17,7 +17,7 @@
     string classForPage = "static " + Html.ClassForPage();
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "height: 100%;" : string.Empty)">
 <!--[if lt IE7]>
     <html lang="@WorkContext.CurrentCulture" class="@classForPage no-js lt-ie9 lt-ie8 lt-ie7">
 <![endif]-->
@@ -36,7 +36,7 @@
     @Display(Model.Head)
     <script>(function (d) { d.className = "dyn" + d.className.substring(6, d.className.length); })(document.documentElement);</script>
 </head>
-<body>
+<body style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "height: 100%;" : string.Empty)">
     <!--[if lt IE7]>
     <p class="chromeframe">@T("You are using an outdated browser"). @Html.Link(T("Upgrade your browser today"), "http://browsehappy.com/")
         @T("or") @Html.Link(T("install Google Chrome Frame"), "http://www.google.com/chromeframe/?redirect=true") @T("to better experience this site").</p>

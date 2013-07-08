@@ -7,6 +7,7 @@ namespace Bootstrap {
                 .Column<int>("Id", column => column.PrimaryKey().Identity())
                 .Column<string>("Swatch", c => c.WithLength(50).WithDefault(Constants.SWATCH_CSS_DEFAULT))
                 .Column<bool>("UseFixedHeader")
+                .Column<bool>("UseFluidLayout")
                 .Column<bool>("UseInverseHeader")
                 .Column<bool>("UseStickyFooter")
             );

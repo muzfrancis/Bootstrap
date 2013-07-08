@@ -9,6 +9,11 @@
     Html.ValidationSummary();
     
     <fieldset>
+        @Html.CheckBoxFor(m => m.UseFluidLayout)@T("Use Fluid Layout")
+        <span id="lblUseFluidLayout" class="hint">@T("Select this checkbox to use a fluid layout (100% width)")</span>
+    </fieldset>
+    
+    <fieldset>
         @Html.CheckBoxFor(m => m.UseFixedHeader)@T("Use Fixed Navigation")
         <span id="lblUseFixedHeader" class="hint">@T("Select this checkbox to use a fixed navigation")</span>
     </fieldset>
