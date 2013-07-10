@@ -4,12 +4,13 @@
     RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/modules/orchard.themes/Content/orchard.ico") });
 
     Style.Include("font-awesome.min.css");
-    Style.Include("font-awesome-ie7.min.css").UseCondition("eq IE 7");
+    Style.Include("font-awesome-ie7.min.css").UseCondition("IE 7");
 
     Script.Require("jQuery").AtHead();
     Script.Include("bootstrap.min.js");
     Script.Include("custom.js");
-    Script.Include("html5shim.js").UseCondition("lt IE 9").AtHead();
+    Script.Include("http://html5shim.googlecode.com/svn/trunk/html5.js").UseCondition("lt IE 9").AtHead();
+    Script.Include("respond.min.js").UseCondition("lt IE 9").AtHead();
 
     string title = Convert.ToString(Model.Title);
     string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
@@ -17,24 +18,18 @@
     string classForPage = "static " + Html.ClassForPage();
 }
 <!DOCTYPE html>
-<html lang="en" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "height: 100%;" : string.Empty)">
-<!--[if lt IE7]>
-    <html lang="@WorkContext.CurrentCulture" class="@classForPage no-js lt-ie9 lt-ie8 lt-ie7">
-<![endif]-->
-<!--[if IE7]>
-    <html lang="@WorkContext.CurrentCulture" class="@classForPage no-js lt-ie9 lt-ie8">
-<![endif]-->
-<!--[if IE8]>
-    <html lang="@WorkContext.CurrentCulture" class="@classForPage no-js lt-ie9">
-<![endif]-->
-<!--[if gt IE8]>
-    <html lang="@WorkContext.CurrentCulture" class="@classForPage no-js">
-<![endif]-->
+<!--[if lt IE 7]>      <html lang="@WorkContext.CurrentCulture" class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 static @Html.ClassForPage()" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "height: 100%;" : string.Empty)"> <![endif]-->
+<!--[if IE 7]>         <html lang="@WorkContext.CurrentCulture" class="no-js lt-ie10 lt-ie9 lt-ie8 static @Html.ClassForPage()" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "height: 100%;" : string.Empty)"> <![endif]-->
+<!--[if IE 8]>         <html lang="@WorkContext.CurrentCulture" class="no-js lt-ie10 lt-ie9 static @Html.ClassForPage()" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "height: 100%;" : string.Empty)"> <![endif]-->
+<!--[if IE 9]>         <html lang="@WorkContext.CurrentCulture" class="no-js lt-ie10 static @Html.ClassForPage()" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "height: 100%;" : string.Empty)"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="@WorkContext.CurrentCulture" class="no-js static @Html.ClassForPage()" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "height: 100%;" : string.Empty)">
+<!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <title>@Html.Title(title, siteName)</title>
     @Display(Model.Head)
-    <script>(function (d) { d.className = "dyn" + d.className.substring(6, d.className.length); })(document.documentElement);</script>
+    <script>(function (d) { d.className = "dyn " + d.className.substring(6, d.className.length); })(document.documentElement);</script>
 </head>
 <body style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "height: 100%;" : string.Empty)">
     <!--[if lt IE7]>
