@@ -55,7 +55,7 @@
     Model.Id = "layout-wrapper";
     var tag = Tag(Model, "div"); // using Tag so the layout div gets the classes, id and other attributes added to the Model
 }
-<div id="layout-wrapper" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -115px;" : string.Empty /*change last value in margin to adjust footer height*/)">
+<div id="layout-wrapper" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -115px;" : string.Empty /*change last value in margin to adjust footer height-don't forget sticky footer settings in theme.css*/)">
     @if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] != null
      && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] == bool.TrueString) { 
         <div class="navbar navbar-fixed-top @(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_INVERSE_HEADER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_INVERSE_HEADER] == bool.TrueString ? "navbar-inverse" : string.Empty)">
@@ -114,13 +114,13 @@
             }
             <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
                 @if (Model.AsideFirst != null) {
-                    <div class="span4">
-                        <div class="sidebar">
+                    <aside class="span3">
+                        <div class="well">
                             @Zone(Model.AsideFirst)&nbsp;
                         </div>
-                    </div>
+                    </aside>
                 }
-                <div class="@(HasText(asideClass) ? asideClass == "aside-1" || asideClass == "aside-2" ? "span8" : asideClass == "aside-12" ? "span4" : "span12" : "span12")">
+                <div class="@(HasText(asideClass) ? asideClass == "aside-1" || asideClass == "aside-2" ? "span9" : asideClass == "aside-12" ? "span6" : "span12" : "span12")">
                     @if (Model.Messages != null) {
                         @Zone(Model.Messages)
                     }
@@ -135,11 +135,11 @@
                     }
                 </div>
                 @if (Model.AsideSecond != null) {
-                    <div class="span4">
-                        <div class="sidebar">
+                    <aside class="span3">
+                        <div class="well">
                             @Zone(Model.AsideSecond)&nbsp;
                         </div>
-                    </div>
+                    </aside>
                 }
             </div>
             @if (Model.AfterMain != null) {
@@ -174,6 +174,31 @@
                     }
                 </div>
             }
+            @if (Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null) {
+                <hr />
+                <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
+                    @if (Model.FooterQuadFirst != null) {
+                        <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
+                            @Zone(Model.FooterQuadFirst)
+                        </div>
+                    }
+                    @if (Model.FooterQuadSecond != null) {
+                        <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
+                            @Zone(Model.FooterQuadSecond)
+                        </div>
+                    }
+                    @if (Model.FooterQuadThird != null) {
+                        <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
+                            @Zone(Model.FooterQuadThird)
+                        </div>
+                    }
+                    @if (Model.FooterQuadFourth != null) {
+                        <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
+                            @Zone(Model.FooterQuadThird)
+                        </div>
+                    }
+                </div>
+            }
         </div>
     </section>
     @if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null
@@ -184,31 +209,6 @@
 <footer id="footer">
     <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "container-fluid" : "container")">
         <hr />
-        @if (Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null) {
-            <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
-                @if (Model.FooterQuadFirst != null) {
-                    <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
-                        @Zone(Model.FooterQuadFirst)
-                    </div>
-                }
-                @if (Model.FooterQuadSecond != null) {
-                    <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
-                        @Zone(Model.FooterQuadSecond)
-                    </div>
-                }
-                @if (Model.FooterQuadThird != null) {
-                    <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
-                        @Zone(Model.FooterQuadThird)
-                    </div>
-                }
-                @if (Model.FooterQuadFourth != null) {
-                    <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
-                        @Zone(Model.FooterQuadThird)
-                    </div>
-                }
-            </div>
-        }
-        
         @if (Model.Footer != null) {
             <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "container-fluid" : "container")">
                 <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
@@ -218,4 +218,6 @@
         }
     </div>
 </footer>
-<div id="toTop"><h1><i class="icon-chevron-sign-up"></i></h1></div>
+<div id="toTop">
+    <h1><i class="icon-chevron-sign-up"></i></h1>
+</div>
