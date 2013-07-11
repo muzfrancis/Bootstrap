@@ -1,0 +1,22 @@
+﻿﻿@using System.Web.Mvc;
+
+@if (WorkContext.CurrentUser != null) {
+   <ul class="nav pull-right">
+       <li class="dropdown">
+           <a href="#" id="userDropdown" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>&nbsp;@Html.ItemDisplayText(WorkContext.CurrentUser)<b class="caret"></b></a>
+           <ul class="dropdown-menu" role="menu" aria-labelledby="userDropdown">
+               <li>@Html.ActionLink(T("Change Password").ToString(), "ChangePassword", new { Controller = "Account", Area = "Orchard.Users" })</li>
+               <li>@Html.ActionLink(T("Sign Out").ToString(), "LogOff", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = Context.Request.RawUrl }, new { rel = "nofollow" })</li>
+               @if (AuthorizedFor(Orchard.Security.StandardPermissions.AccessAdminPanel)) {
+                   <li class="divider"></li>
+                   <li>@Html.ActionLink(T("Dashboard").ToString(), "Index", new { Area = "Dashboard", Controller = "Admin" })</li>
+               }
+           </ul>
+       </li>
+   </ul>
+}
+else {
+   <ul class="nav pull-right">
+       <li>@Html.ActionLink(T("Sign In").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = (Request.QueryString["ReturnUrl"] ?? Request.RawUrl) }, new { rel = "nofollow" })</li>
+   </ul>
+}
