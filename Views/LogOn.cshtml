@@ -4,7 +4,6 @@
     var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
     var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
 }
-@Html.ValidationSummary(T("Login was unsuccessful. Please correct the errors and try again.").ToString(), new { @class = "text-error" })
 <div class="well logreg">
     <h3>Sign In to @WorkContext.CurrentSite.SiteName</h3>
     <hr />
@@ -14,6 +13,7 @@
             <label class="control-label" for="userNameOrEmail">@T("Username")</label>
             <div class="controls">
                 @Html.TextBox("userNameOrEmail", "", new { id = "username-email", @class = "input-large", autofocus = "autofocus" })
+                @Html.ValidationMessage("userNameOrEmail")
             </div>
         </div>
         <!-- Password -->
@@ -21,6 +21,7 @@
             <label class="control-label" for="password">@T("Password")</label>
             <div class="controls">
                 @Html.Password("password", string.Empty, new { @class = "input-large" })
+                @Html.ValidationMessage("password")
             </div>
         </div>
         <div class="control-group">

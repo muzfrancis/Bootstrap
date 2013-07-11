@@ -1,5 +1,4 @@
-﻿@Html.ValidationSummary(T("Account creation was unsuccessful. Please correct the errors and try again.").ToString(), new { @class = "text-error" })
-<div class="well logreg">
+﻿<div class="well logreg">
     <h3>Register with @WorkContext.CurrentSite.SiteName</h3>
     <hr />
     @using (Html.BeginFormAntiForgeryPost(Url.Action("Register"), FormMethod.Post, new { @class = "form-horizontal" })) {
@@ -8,6 +7,7 @@
             <label class="control-label" for="username">@T("Username")</label>
             <div class="controls">
                 @Html.TextBox("username", string.Empty, new { @class = "input-large" })
+                @Html.ValidationMessage("username")
             </div>
         </div>
         <!-- Email -->
@@ -15,6 +15,7 @@
             <label class="control-label" for="email">@T("Email")</label>
             <div class="controls">
                 @Html.TextBox("email", string.Empty, new { @class = "input-large" })
+                @Html.ValidationMessage("email")
             </div>
         </div>
         <!-- Password -->
@@ -22,6 +23,7 @@
             <label class="control-label" for="password">@T("Password")</label>
             <div class="controls">
                 @Html.Password("password", string.Empty, new { @class = "input-large" })
+                @Html.ValidationMessage("password")
             </div>
         </div>
         <!-- Password Confirm -->
@@ -29,6 +31,7 @@
             <label class="control-label" for="confirmpassword">@T("Confirm new Password")</label>
             <div class="controls">
                 @Html.Password("confirmpassword", string.Empty, new { @class = "input-large" })
+                @Html.ValidationMessage("confirmPassword")
             </div>
         </div>
         <!-- Buttons -->
