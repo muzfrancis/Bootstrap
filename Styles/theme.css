@@ -38,3 +38,7 @@
 /* SEARCH WIDGET STYLING
 ================================================== */
 .widget-search-form { float: none !important; }
+
+/* TWITTER WIDGET STYLING
+================================================== */
+.latest-twitter-list h5 { display: inline-block; margin: 0; }
