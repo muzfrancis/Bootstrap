@@ -12,3 +12,8 @@
 .navbar-fixed-top + #content { padding-top: 60px; }
 /* remove the bottom margin */
 .subnav { margin-bottom: 0; }
+
+/* BACK TO TOP
+================================================== */
+#toTop { bottom: 10px; cursor: pointer; display: none; position: fixed; right: 5px; text-align: center; z-index: 500; }
+#toTop:hover { opacity: .7; }
