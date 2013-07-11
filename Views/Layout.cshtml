@@ -97,11 +97,17 @@
     }
     <section id="content">
         <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "container-fluid" : "container")">
+            @if (Model.BeforeMain != null) {
+                <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
+                    <div class="span12">
+                        @Zone(Model.BeforeMain)
+                    </div>
+                </div>
+            }
             @if (Model.Featured != null) {
                 <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
                     <div class="span12">
                         @Zone(Model.Featured)
-                        <div class="bor"></div>
                     </div>
                 </div>
             }
@@ -135,6 +141,13 @@
                     </div>
                 }
             </div>
+            @if (Model.AfterMain != null) {
+                <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
+                    <div class="span12">
+                        @Zone(Model.AfterMain)
+                    </div>
+                </div>
+            }
             @if (Model.TripelFirst != null || Model.TripelSecond != null || Model.TripelThird != null) {
                 <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
                     @if (Model.TripelFirst != null) {
@@ -162,12 +175,15 @@
             }
         </div>
     </section>
-    <div id="push"></div>
+    @if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null
+        && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString) {
+        <div id="push"></div>
+    }
 </div>
 <footer id="footer">
-    <hr />
-    @if (Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null) {
-        <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "container-fluid" : "container")">
+    <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "container-fluid" : "container")">
+        <hr />
+        @if (Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null) {
             <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
                 @if (Model.FooterQuadFirst != null) {
                     <div class="@(HasText(footerQuadClass) ? footerQuadClass == "split-1" || footerQuadClass == "split-2" || footerQuadClass == "split-3" || footerQuadClass == "split-4" ? "span12" : footerQuadClass == "split-12" || footerQuadClass == "split-13" || footerQuadClass == "split-14" || footerQuadClass == "split-23" || footerQuadClass == "split-24" || footerQuadClass == "split-34" ? "span6" : footerQuadClass == "split-123" || footerQuadClass == "split-124" || footerQuadClass == "split-134" || footerQuadClass == "split-234" ? "span4" : "span3" : "span12")">
@@ -190,13 +206,15 @@
                     </div>
                 }
             </div>
-        </div>
-    }
-    @if (Model.Footer != null) {
-        <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "container-fluid" : "container")">
-            <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
-                @Zone(Model.Footer)
+        }
+        
+        @if (Model.Footer != null) {
+            <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "container-fluid" : "container")">
+                <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "row-fluid" : "row")">
+                    @Zone(Model.Footer)
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </footer>
+<div id="toTop"><h1><i class="icon-chevron-sign-up"></i></h1></div>
