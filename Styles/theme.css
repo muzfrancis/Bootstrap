@@ -27,7 +27,7 @@
 ================================================== */
 .logreg { width: 450px; margin: 40px auto; padding: 20px 10px; border-radius: 10px; }
 .logreg .control-label { width: 80px; }
-.logreg.changepassword .control-label { padding-top: 0; }
+.logreg.changepassword .control-label, .logreg.lostpassword .control-label { padding-top: 0; }
 .logreg .controls { margin-left: 100px; }
 .logreg input[type="text"], .logreg .form-horizontal input[type="password"], .logreg .form-horizontal textarea { width: 90%; }
 .logreg .form-actions { padding: 5px 20px 5px; padding-left: 100px; background: transparent; border-top: 0px; }
