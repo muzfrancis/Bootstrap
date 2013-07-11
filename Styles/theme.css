@@ -18,11 +18,17 @@
 #toTop { bottom: 10px; cursor: pointer; display: none; position: fixed; right: 5px; text-align: center; z-index: 500; }
 #toTop:hover { opacity: .7; }
 
+/* FORM ERROR STYLING
+================================================== */
+.input-validation-error { border-color: #bd4247 !important; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) !important; -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) !important; box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) !important; }
+.field-validation-error { color: #bd4247; }
+
 /* LOGIN/REGISTRATION FORM STYLING
 ================================================== */
 .logreg { width: 450px; margin: 40px auto; padding: 20px 10px; border-radius: 10px; }
 .logreg .control-label { width: 80px; }
+.logreg.changepassword .control-label { padding-top: 0; }
 .logreg .controls { margin-left: 100px; }
-.logreg input[type="text"], .logreg-page .form-horizontal input[type="password"], .logreg-page .form-horizontal textarea { width: 90%; }
+.logreg input[type="text"], .logreg .form-horizontal input[type="password"], .logreg .form-horizontal textarea { width: 90%; }
 .logreg .form-actions { padding: 5px 20px 5px; padding-left: 100px; background: transparent; border-top: 0px; }
 .logreg .lregister { text-align: center; }
