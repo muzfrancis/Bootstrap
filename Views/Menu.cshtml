@@ -1,13 +1,13 @@
 ﻿@{
     // Model is Model.Menu from the layout (Layout.Menu)
     if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] != null
-     && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] == bool.TrueString) {
+        && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] == bool.TrueString) {
         Model.Classes.Add("nav");
     }
     else {
         Model.Classes.Add("nav nav-pills");
     }
-    
+
     var tag = Tag(Model, "ul");
 
     var items = (IList<dynamic>)Enumerable.Cast<dynamic>(Model.Items);
