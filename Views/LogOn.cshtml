@@ -1,0 +1,48 @@
+﻿@using Orchard.ContentManagement
+
+@{
+    var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
+    var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
+}
+@Html.ValidationSummary(T("Login was unsuccessful. Please correct the errors and try again.").ToString(), new { @class = "text-error" })
+<div class="well logreg">
+    <h3>Sign In to @WorkContext.CurrentSite.SiteName</h3>
+    <hr />
+    @using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { ReturnUrl = Request.QueryString["ReturnUrl"] }), FormMethod.Post, new { @class = "form-horizontal" })) {
+        <!-- Username -->
+        <div class="control-group">
+            <label class="control-label" for="userNameOrEmail">Username</label>
+            <div class="controls">
+                @Html.TextBox("userNameOrEmail", "", new { id = "username-email", @class = "input-large", autofocus = "autofocus" })
+            </div>
+        </div>
+        <!-- Password -->
+        <div class="control-group">
+            <label class="control-label" for="password">Password</label>
+            <div class="controls">
+                @Html.Password("password", string.Empty, new { @class = "input-large" })
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    @Html.CheckBox("rememberMe", new { id = "remember-me" })
+                    Remember me
+                </label>
+            </div>
+        </div>
+        <!-- Buttons -->
+        <div class="form-actions">
+            <!-- Buttons -->
+            <button type="submit" class="btn">Login</button>
+            <button type="reset" class="btn">Reset</button>
+        </div>
+    }
+    @if (userCanRegister) {
+        <hr />
+        <div class="lregister">
+            Don't have Account? @Html.ActionLink(T("Register").Text, "Register")<br />
+            @if (enableLostPassword) { @Html.ActionLink(T("Lost your Password?").Text, "RequestLostPassword") }
+        </div>
+    }
+</div>
