@@ -44,9 +44,10 @@
     /* Inserting some ad hoc shapes
     ***************************************************************/
 
-    WorkContext.Layout.Header.Add(New.Branding(), "1"); // Site name and link to the home page
+    WorkContext.Layout.Header.Add(New.Branding(), "0"); // Site name and link to the home page
     WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "5"); // Powered by Raptor Concepts
-    WorkContext.Layout.Navigation.Add(New.User(), "10"); // Login and dashboard links
+    WorkContext.Layout.Navigation.Add(New.User(), "5"); // Login and dashboard links
+    //WorkContext.Layout.Navigation.Add(New.SearchNav(), "10"); // Search box (requires Search module)
 
     /* Last bit of code to prep the layout wrapper
     ***************************************************************/

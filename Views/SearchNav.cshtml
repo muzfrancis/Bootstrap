@@ -1,0 +1,5 @@
+﻿﻿@using Orchard.Search.ViewModels;
+
+@using (Html.BeginForm("index", "search", new { area = "Orchard.Search" }, FormMethod.Get, new { @class = "navbar-search pull-right" })) {
+    @Html.TextBox("q", string.Empty, new { @class = "search-query", placeholder = "Search" })
+}

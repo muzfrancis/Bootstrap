@@ -68,6 +68,7 @@
     <Content Include="Content\glyphicons-halflings-white.png" />
     <Content Include="Content\glyphicons-halflings.png" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Styles\amelia.min.css" />
     <Content Include="Styles\bootstrap-responsive.min.css" />
@@ -88,6 +89,7 @@
     <Content Include="Styles\superhero.min.css" />
     <Content Include="Styles\theme.css" />
     <Content Include="Styles\united.min.css" />
+    <Content Include="ThemeZonePreview.png" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\Web.config" />
@@ -107,6 +109,10 @@
     <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Search\Orchard.Search.csproj">
+      <Project>{4be4eb01-ac56-4048-924e-2ca77f509aba}</Project>
+      <Name>Orchard.Search</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Modules\Orchard.Themes\Orchard.Themes.csproj">
       <Project>{cde24a24-01d3-403c-84b9-37722e18dfb7}</Project>
@@ -163,6 +169,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Message.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BadgeOfHonor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SearchNav.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
