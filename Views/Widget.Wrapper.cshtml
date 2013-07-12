@@ -8,7 +8,9 @@
 @if ((widgetPart.RenderTitle && HasText(widgetPart.Title)) || Model.Header != null) {
     <header>
         @if ((widgetPart.RenderTitle && HasText(widgetPart.Title))) {
-            <h3>@widgetPart.Title</h3>
+            <div class="page-header">
+                <h3>@widgetPart.Title</h3>
+            </div>
         }
         @Display(Model.Header)
     </header>

@@ -15,6 +15,7 @@
 /* remove the bottom margin */
 .subnav { margin-bottom: 0; }
 .well { padding: 5px 10px; }
+.widget .page-header { margin: 0 0 5px; padding-bottom: 0; }
 
 /* BACK TO TOP
 ================================================== */
