@@ -38,11 +38,11 @@ else if (WorkContext.CurrentUser == null && !AuthorizedFor(Permissions.AddCommen
     </div>
 }
 else {
-    <div class="respond">
+    <div class="respond well">
         <div class="title">
             <h4>Post Reply</h4>
         </div>
-        <div class="form well">
+        <div class="form">
             @using (Html.BeginForm("Create", "Comment", new { area = "Orchard.Comments" }, FormMethod.Post, new { @class = "form-horizontal" })) {
                 if (WorkContext.CurrentUser == null) {
                 <div class="control-group">
