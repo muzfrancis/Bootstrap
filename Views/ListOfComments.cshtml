@@ -1,0 +1,16 @@
+﻿@*Orchard 1.6 Comments shape*@
+@model IEnumerable<Orchard.Comments.Models.CommentPart>
+@using Orchard.Comments.Models;
+@using Orchard.Utility.Extensions;
+<ul class="comment-list">
+    @foreach (var comment in Model) {
+        <li class="comment well">
+            <article id="comment-@comment.Id">
+                @Display.CommentAuthor(ContentPart: comment)
+                @Display.CommentMetadata(ContentPart: comment)
+                <p>@(new MvcHtmlString(Html.Encode(comment.Record.CommentText).Replace("\r\n", "<br />\r\n")))</p>
+                <div class="clearfix"></div>
+            </article>
+        </li>
+    }
+</ul>

@@ -1,0 +1,87 @@
+﻿@*Orchard 1.6 Comments shape*@
+@using Orchard.Comments.Models;
+@using Orchard.Comments;
+@using Orchard.Security;
+@using Orchard.Utility.Extensions;
+
+@{
+    var contextExists = TempData["CreateCommentContext.Name"] != null;
+    var name = Convert.ToString(TempData["CreateCommentContext.Name"]);
+    var commentText = Convert.ToString(TempData["CreateCommentContext.CommentText"]);
+    var email = Convert.ToString(TempData["CreateCommentContext.Email"]);
+    var siteName = Convert.ToString(TempData["CreateCommentContext.SiteName"]);
+}
+
+@if (Model.ContentPart.Comments.Count > 0) {
+    <hr />
+    <div class="comments">
+        <div class="title">
+            <h4>@T.Plural("1 Comment", "{0} Comments", (int)Model.ContentPart.Comments.Count)</h4>
+        </div>
+        @{Html.RenderPartial("ListOfComments", (IEnumerable<Orchard.Comments.Models.CommentPart>)Model.ContentPart.Comments);}
+    </div>
+}
+
+@if (Model.ContentPart.CommentsActive == false) {
+    if (Model.ContentPart.Comments.Count > 0) {
+    <div class="comments">
+        <h4>@T("Comments have been disabled for this content.")</h4>
+    </div>
+    }
+}
+else if (WorkContext.CurrentUser == null && !AuthorizedFor(Permissions.AddComment)) {
+    <div class="respond">
+        <div class="title">
+            <h4>Post Reply</h4>
+        </div>
+        <p>@T("You must {0} to comment.", Html.ActionLink(T("sign in").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = string.Format("{0}#addacomment", Context.Request.RawUrl) }))</p>
+    </div>
+}
+else {
+    <div class="respond">
+        <div class="title">
+            <h4>Post Reply</h4>
+        </div>
+        <div class="form well">
+            @using (Html.BeginForm("Create", "Comment", new { area = "Orchard.Comments" }, FormMethod.Post, new { @class = "form-horizontal" })) {
+                if (WorkContext.CurrentUser == null) {
+                <div class="control-group">
+                    <label class="control-label" for="Name">Name</label>
+                    <div class="controls">
+                        <input id="Name" class="input-large" name="Name" type="text" value="@(contextExists ? name : String.Empty)" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="Email">Email</label>
+                    <div class="controls">
+                        <input id="Email" class="input-large" name="Email" type="text" value="@(contextExists ? email : String.Empty)"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="SiteName">Website</label>
+                    <div class="controls">
+                        <input id="SiteName" class="input-large" name="SiteName" type="text" value="@(contextExists ? siteName : String.Empty)"/>
+                    </div>
+                </div>
+                }
+                else {
+                @Html.Hidden("Name", WorkContext.CurrentUser.UserName ?? "")
+                @Html.Hidden("Email", WorkContext.CurrentUser.Email ?? "")
+                }
+                <div class="control-group">
+                    <label class="control-label" for="comment-text">Comment</label>
+                    <div class="controls">
+                        <textarea id="comment-text" class="input-xlarge" rows="3" name="CommentText">@(contextExists ? commentText : String.Empty)</textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="reset" class="btn">Reset</button>
+                    @Html.Hidden("CommentedOn", (int)Model.ContentPart.ContentItem.Id)
+                    @Html.Hidden("ReturnUrl", Context.Request.ToUrlString())
+                    @Html.AntiForgeryTokenOrchard()
+                </div>
+            }
+        </div>
+    </div>
+}

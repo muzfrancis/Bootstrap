@@ -1,0 +1,9 @@
+﻿@using Orchard.Comments.Models
+@{
+    CommentPart comment = Model.ContentPart;
+    //remove Record from comment.Record when moving to Orchard 1.7
+    //add "@Url.RouteUrl(comment.Record.CommentedOnContentItemMetadata.DisplayRouteValues) + " before #comment
+}
+<div class="cmeta">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon-calendar"></i>&nbsp;@T("Commented") <time datetime="@comment.Record.CommentDateUtc.GetValueOrDefault().ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz")">@Html.Link((string)Display.DateTimeRelative(dateTimeUtc: comment.Record.CommentDateUtc.GetValueOrDefault()).ToString(), "#comment-" + comment.Id)</time>
+</div>

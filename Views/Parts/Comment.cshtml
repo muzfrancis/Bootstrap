@@ -1,0 +1,26 @@
+﻿@*Orchard 1.7 Comments shape*@
+@using Orchard.Comments.Models
+@using Orchard.ContentManagement
+
+@{
+    CommentPart comment = Model.ContentPart;
+    CommentsPart comments = comment.CommentedOnContentItem.As<CommentsPart>();
+
+    var children = New.List(Items: Model.Items);
+    children.Classes.Add("comment-list");
+}
+<li class="comment well">
+    <article id="comment-@comment.Id">
+        @Display.CommentAuthor(ContentPart: comment)
+        @Display.CommentMetadata(ContentPart: comment)
+        @Display.CommentText(ContentPart: Model.ContentPart, ContentItem: Model.ContentItem)
+        <div class="clearfix"></div>
+        @if (comments.ThreadedComments) {
+            <div class="button">
+                @Display.CommentReplyButton(ContentPart: comment)
+            </div>
+        }
+        <div class="cleafix"></div>
+        @Display(children)
+    </article>
+</li>

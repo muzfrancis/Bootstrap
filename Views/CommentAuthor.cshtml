@@ -1,0 +1,7 @@
+﻿@using Orchard.Comments.Models
+@{
+    CommentPart comment = Model.ContentPart;
+    //remove Record from comment.Record when moving to Orchard 1.7
+}
+
+<div class="comment-author"><i class="icon-user"></i>&nbsp;<a href="#">@Html.LinkOrDefault(comment.Record.Author, comment.Record.SiteName, new { rel = "nofollow" })</a></div>

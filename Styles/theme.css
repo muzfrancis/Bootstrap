@@ -42,3 +42,18 @@
 /* TWITTER WIDGET STYLING
 ================================================== */
 .latest-twitter-list h5 { display: inline-block; margin: 0; }
+
+/* BLOG STYLING
+================================================== */
+.meta.well, .comment.well { padding: 5px; }
+.commentcount { margin-top: -46px !important; margin-right: 5px; }
+
+/* remove list style and margin from blog list */
+.blog-posts, .comment-list, .archive-trail + ul { list-style: none; margin-left: 0; }
+
+.comment-author, .cmeta { font-size: .9em; display: inline-block; }
+.comment p { margin-top: 5px; }
+.comment .comment-list { margin: 20px 20px 0; }
+.comment-form .control-label { width: 80px; }
+.comment-form .controls { margin-left: 100px; }
+.comment-form .comment-text { width: 98%; }

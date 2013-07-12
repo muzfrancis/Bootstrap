@@ -17,4 +17,21 @@
   <Match Path="/">
     <Place Parts_Common_Metadata="-"/>
   </Match>
+
+  <Match ContentType="Blog">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
+  
+  <Match ContentType="BlogPost">
+    <Match DisplayType="Summary">
+      <Place Parts_Tags_ShowTags="-"/>
+    </Match>
+    <Match DisplayType="Detail">
+      <Place Parts_Tags_ShowTags="-"/>
+      <Place Parts_Comments_Count="Meta:after"/>
+      <Place Parts_Share_ShareBar="Content:after:1"/>
+      <Place Parts_Comments="Content:after:2"/>
+      <Place Parts_NextPreviousLinks="Content:after:3"/>
+    </Match>
+  </Match>
 </Placement>
