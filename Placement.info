@@ -29,9 +29,10 @@
     <Match DisplayType="Detail">
       <Place Parts_Tags_ShowTags="-"/>
       <Place Parts_Comments_Count="Meta:after"/>
-      <Place Parts_Share_ShareBar="Content:after:1"/>
-      <Place Parts_Comments="Content:after:2"/>
-      <Place Parts_NextPreviousLinks="Content:after:3"/>
+      <Place Parts_Common_Body="Content:1"/>
+      <Place Parts_Share_ShareBar="Content:2"/>
+      <Place Parts_Comments="Content:3"/>
+      <Place Parts_NextPreviousLinks="Content:4"/>
     </Match>
   </Match>
 </Placement>

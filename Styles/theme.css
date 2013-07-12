@@ -14,6 +14,7 @@
 .navbar-fixed-top + #content { padding-top: 60px; }
 /* remove the bottom margin */
 .subnav { margin-bottom: 0; }
+.well { padding: 5px 10px; }
 
 /* BACK TO TOP
 ================================================== */
@@ -61,3 +62,7 @@
 .comment-form .control-label { width: 80px; }
 .comment-form .controls { margin-left: 100px; }
 .comment-form .comment-text { width: 98%; }
+
+/* SHAREBAR STYLING
+================================================== */
+.well .sharebar { padding-top: 12px; }
