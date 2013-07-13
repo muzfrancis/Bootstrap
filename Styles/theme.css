@@ -29,13 +29,16 @@
 
 /* LOGIN/REGISTRATION FORM STYLING
 ================================================== */
+/* set size and position of login/registration form */
 .logreg { width: 450px; margin: 40px auto; padding: 20px 10px; border-radius: 10px; }
+.logreg .lregister { text-align: center; }
+/* adjust position/size of login/registration form labels and inputs */
 .logreg .control-label { width: 80px; }
 .logreg.changepassword .control-label, .logreg.lostpassword .control-label { padding-top: 0; }
 .logreg .controls { margin-left: 100px; }
 .logreg input[type="text"], .logreg .form-horizontal input[type="password"], .logreg .form-horizontal textarea { width: 90%; }
+/* form action style */
 .logreg .form-actions { padding: 5px 20px 5px; padding-left: 100px; background: transparent; border-top: 0px; }
-.logreg .lregister { text-align: center; }
 
 /* SEARCH WIDGET STYLING
 ================================================== */
@@ -67,3 +70,7 @@
 /* SHAREBAR STYLING
 ================================================== */
 .well .sharebar { padding-top: 12px; }
+
+/* PAGER STYLING
+================================================== */
+.pager li > a, .pager li > span { -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; }
