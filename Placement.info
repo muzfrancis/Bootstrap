@@ -24,10 +24,10 @@
   
   <Match ContentType="BlogPost">
     <Match DisplayType="Summary">
-      <Place Parts_Tags_ShowTags="-"/>
+      <Place Parts_Tags_ShowTags="Meta:before"/>
     </Match>
     <Match DisplayType="Detail">
-      <Place Parts_Tags_ShowTags="-"/>
+      <Place Parts_Tags_ShowTags="Meta:before"/>
       <Place Parts_Comments_Count="Meta:after"/>
       <Place Parts_Common_Body="Content:1"/>
       <Place Parts_Share_ShareBar="Content:2"/>

@@ -51,9 +51,10 @@
 /* BLOG STYLING
 ================================================== */
 /* change padding on wells */
-.meta.well, .comment.well { padding: 5px; }
+.meta.well, .metadata.well, .comment.well { padding: 5px; }
+.tags, .meta { font-size: .9em; }
 /* move comment count inline with other meta items */
-.commentcount { margin-top: -46px !important; margin-right: 5px; }
+.commentcount { margin-top: -20px !important; margin-right: 5px; }
 /* remove list style and margin from blog list */
 .blog-posts, .comment-list, .archive-trail + ul { list-style: none; margin-left: 0; }
 /* reduce size of author & meta and display on same line */
