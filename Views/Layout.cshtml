@@ -47,7 +47,11 @@
     WorkContext.Layout.Header.Add(New.Branding(), "0"); // Site name and link to the home page
     WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "5"); // Powered by Raptor Concepts
     WorkContext.Layout.Navigation.Add(New.User(), "5"); // Login and dashboard links
-    //WorkContext.Layout.Navigation.Add(New.SearchNav(), "10"); // Search box (requires Search module)
+
+    if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_NAV_SEARCH] != null
+     && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_NAV_SEARCH] == bool.TrueString) {
+        WorkContext.Layout.Navigation.Add(New.SearchNav(), "10"); // Search box (requires Search module)
+    }
 
     /* Last bit of code to prep the layout wrapper
     ***************************************************************/
@@ -56,9 +60,9 @@
     var tag = Tag(Model, "div"); // using Tag so the layout div gets the classes, id and other attributes added to the Model
 }
 <div id="layout-wrapper" style="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_STICKY_FOOTER] == bool.TrueString ? "min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -115px;" : string.Empty /*change last value in margin to adjust footer height-don't forget sticky footer settings in theme.css*/)">
-    @if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] != null
-     && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] == bool.TrueString) { 
-        <div class="navbar navbar-fixed-top @(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_INVERSE_HEADER] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_INVERSE_HEADER] == bool.TrueString ? "navbar-inverse" : string.Empty)">
+    @if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_NAV] != null
+     && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_NAV] == bool.TrueString) { 
+        <div class="navbar navbar-fixed-top @(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_INVERSE_NAV] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_INVERSE_NAV] == bool.TrueString ? "navbar-inverse" : string.Empty)">
             <div class="navbar-inner">
                 <div class="@(WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] != null && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FLUID_LAYOUT] == bool.TrueString ? "container-fluid" : "container")">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">

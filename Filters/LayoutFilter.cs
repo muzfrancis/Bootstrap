@@ -39,17 +39,21 @@ namespace Bootstrap.Filters {
                 if (viewResult == null)
                     return;
 
-                if (settings.UseFixedHeader) {
+                if (settings.UseFixedNav) {
                     /* TODO: Replace note use Items collection */
-                    System.Web.HttpContext.Current.Items[Constants.ITEM_USE_FIXED_HEADER] = settings.UseFixedHeader.ToString();
+                    System.Web.HttpContext.Current.Items[Constants.ITEM_USE_FIXED_NAV] = settings.UseFixedNav.ToString();
+                }
+                if (settings.UseNavSearch) {
+                    /* TODO: Replace note use Items collection */
+                    System.Web.HttpContext.Current.Items[Constants.ITEM_USE_NAV_SEARCH] = settings.UseNavSearch.ToString();
                 }
                 if (settings.UseFluidLayout) {
                     /* TODO: Replace note use Items collection */
                     System.Web.HttpContext.Current.Items[Constants.ITEM_USE_FLUID_LAYOUT] = settings.UseFluidLayout.ToString();
                 }
-                if (settings.UseInverseHeader) {
+                if (settings.UseInverseNav) {
                     /* TODO: Replace note use Items collection */
-                    System.Web.HttpContext.Current.Items[Constants.ITEM_USE_INVERSE_HEADER] = settings.UseInverseHeader.ToString();
+                    System.Web.HttpContext.Current.Items[Constants.ITEM_USE_INVERSE_NAV] = settings.UseInverseNav.ToString();
                 }
                 if (settings.UseStickyFooter) {
                     /* TODO: Replace note use Items collection */

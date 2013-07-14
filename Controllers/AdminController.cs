@@ -26,9 +26,10 @@ namespace Bootstrap.Controllers {
 
             var viewModel = new ThemeSettingsViewModel {
                 Swatch = settings.Swatch,
-                UseFixedHeader = settings.UseFixedHeader,
+                UseFixedNav = settings.UseFixedNav,
+                UseNavSearch = settings.UseNavSearch,
                 UseFluidLayout = settings.UseFluidLayout,
-                UseInverseHeader = settings.UseInverseHeader,
+                UseInverseNav = settings.UseInverseNav,
                 UseStickyFooter = settings.UseStickyFooter
             };
 
@@ -42,9 +43,10 @@ namespace Bootstrap.Controllers {
 
             var settings = _settingsService.GetSettings();
             settings.Swatch = viewModel.Swatch;
-            settings.UseFixedHeader = viewModel.UseFixedHeader;
+            settings.UseFixedNav = viewModel.UseFixedNav;
+            settings.UseNavSearch = viewModel.UseNavSearch;
             settings.UseFluidLayout = viewModel.UseFluidLayout;
-            settings.UseInverseHeader = viewModel.UseInverseHeader;
+            settings.UseInverseNav = viewModel.UseInverseNav;
             settings.UseStickyFooter = viewModel.UseStickyFooter;
 
             Services.Notifier.Information(T("Your settings have been saved."));

@@ -2,8 +2,8 @@
     var homeUrl = Href("~/");
 }
 
-@if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] != null
-     && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] == bool.TrueString) { 
+@if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_NAV] != null
+     && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_NAV] == bool.TrueString) { 
     <a class="brand" href="@homeUrl">@WorkContext.CurrentSite.SiteName</a>
 }
 else {
