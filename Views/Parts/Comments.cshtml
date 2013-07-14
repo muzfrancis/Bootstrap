@@ -42,7 +42,7 @@ else {
         <div class="title">
             <h4>Post Reply</h4>
         </div>
-        <div class="form">
+        <div class="comment-form">
             @using (Html.BeginForm("Create", "Comment", new { area = "Orchard.Comments" }, FormMethod.Post, new { @class = "form-horizontal" })) {
                 if (WorkContext.CurrentUser == null) {
                 <div class="control-group">
@@ -71,7 +71,7 @@ else {
                 <div class="control-group">
                     <label class="control-label" for="comment-text">Comment</label>
                     <div class="controls">
-                        <textarea id="comment-text" class="input-xlarge" rows="3" name="CommentText">@(contextExists ? commentText : String.Empty)</textarea>
+                        <textarea id="Comments_CommentText" class="comment-text" cols="3" rows="10" name="CommentText">@(contextExists ? commentText : String.Empty)</textarea>
                     </div>
                 </div>
                 <div class="form-actions">
