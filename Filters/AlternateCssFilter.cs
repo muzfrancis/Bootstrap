@@ -33,7 +33,6 @@ namespace Bootstrap.Filters {
 
             var themeName = _siteThemeService.GetSiteTheme();
             if (themeName.Name == Constants.THEME_NAME) {
-                this.AddMeta();
                 this.AddCss();
             }
         }
@@ -46,6 +45,8 @@ namespace Bootstrap.Filters {
                 _resourceManager.Require("stylesheet", settings.Swatch)
                                 .AtHead();
 
+                System.Web.HttpContext.Current.Items[Constants.ITEM_USE_SWATCH_NAME] = settings.Swatch.ToString();
+
             // Add Bootstrap Responsive
             _resourceManager.Require("stylesheet", ResourceManifest.BOOTSTRAP_RESPONSIVE_STYLE)
                             .AtHead();
@@ -57,14 +58,6 @@ namespace Bootstrap.Filters {
             // Add Theme Overrides
             _resourceManager.Require("stylesheet", ResourceManifest.CUSTOM_STYLE)
                             .AtHead();
-        }
-
-        private void AddMeta() {
-            // Insert Meta Tags
-            _resourceManager.SetMeta(new MetaEntry() {
-                Name = "viewport",
-                Content = "width=device-width",
-            });
         }
 
         public void OnResultExecuted(ResultExecutedContext filterContext) {
