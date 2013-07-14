@@ -4,6 +4,7 @@ Bootstrap
 Orchard CMS Theme based on Twitter Bootstrap
 
 Requires Orchard 1.6 or higher
+
 Tested with Orchard 1.7
 
 Package available for download in the [Orchard Gallery](http://gallery.orchardproject.net/List/Themes/Orchard.Theme.Bootstrap)
@@ -16,6 +17,7 @@ Includes Admin panel selectable options for:
 * Sticky or Normal Footer
 * Bootswatch Theme or Default Style
 
+Also includes:
 * Based on Twitter Bootstrap 2.3.2 & HTML5 Boilerplate 4.2.0
 * Includes Font Awesome 3.2.1
 * Includes custom shapes for LatestTwitter and AddThis widgets
