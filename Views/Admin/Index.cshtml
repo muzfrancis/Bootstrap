@@ -15,17 +15,17 @@
     
     <fieldset>
         @Html.CheckBoxFor(m => m.UseFixedNav)@T("Use Fixed Navigation Bar")
-        <span id="lblUseFixedHeader" class="hint">@T("Select this checkbox to use a fixed navigation")</span>
+        <span id="lblUseFixedNav" class="hint">@T("Select this checkbox to use a fixed navigation")</span>
     </fieldset>
     
     <fieldset>
         @Html.CheckBoxFor(m => m.UseInverseNav)@T("Use Inverse Navigation Bar Color")
-        <span id="lblUseInverseHeader" class="hint">@T("Select this checkbox to use the inverse navigation color")</span>
+        <span id="lblUseInverseNav" class="hint">@T("Select this checkbox to use the inverse navigation color. *REQUIRES FIXED NAVIGATION BAR")</span>
     </fieldset>
     
     <fieldset>
         @Html.CheckBoxFor(m => m.UseNavSearch)@T("Use Navigation Bar Search Field")
-        <span id="lblUseFixedHeader" class="hint">@T("Select this checkbox to use a navigation bar search field. *REQUIRES SEARCH MODULE")</span>
+        <span id="lblUseNavSearch" class="hint">@T("Select this checkbox to use a navigation bar search field. *REQUIRES SEARCH MODULE")</span>
     </fieldset>
     
     <fieldset>
