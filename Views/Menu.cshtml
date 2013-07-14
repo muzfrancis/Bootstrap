@@ -1,7 +1,7 @@
 ﻿@{
     // Model is Model.Menu from the layout (Layout.Menu)
-    if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] != null
-        && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_HEADER] == bool.TrueString) {
+    if (WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_NAV] != null
+        && WorkContext.HttpContext.Items[Bootstrap.Constants.ITEM_USE_FIXED_NAV] == bool.TrueString) {
         Model.Classes.Add("nav");
     }
     else {
