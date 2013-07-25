@@ -67,6 +67,7 @@
     <Content Include="Content\font\font-awesome\fontawesome-webfont.svg" />
     <Content Include="Content\glyphicons-halflings-white.png" />
     <Content Include="Content\glyphicons-halflings.png" />
+    <Content Include="Content\Admin\Swatches.png" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -113,6 +114,10 @@
     <ProjectReference Include="..\..\Modules\Orchard.Themes\Orchard.Themes.csproj">
       <Project>{cde24a24-01d3-403c-84b9-37722e18dfb7}</Project>
       <Name>Orchard.Themes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Users\Orchard.Users.csproj">
+      <Project>{79aed36e-abd0-4747-93d3-8722b042454b}</Project>
+      <Name>Orchard.Users</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
