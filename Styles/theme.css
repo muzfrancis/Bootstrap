@@ -57,7 +57,7 @@
 /* move comment count inline with other meta items */
 .commentcount { margin-top: -20px !important; margin-right: 5px; }
 /* remove list style and margin from blog list */
-.search-results.content-items, .blog-posts, .tagged-posts, .comment-list, .archive-trail + ul { list-style: none; margin-left: 0; }
+.search-results.content-items, .blog-posts, .tagged-posts, .comment-list, .archive-trail + ul, .projection-page ul { list-style: none; margin-left: 0; }
 /* reduce size of author & meta and display on same line */
 .comment-author, .cmeta { font-size: .9em; display: inline-block; }
 /* create space between meta and comment text */
